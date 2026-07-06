@@ -40,7 +40,7 @@ const NeedCareToday = () => {
             </h2>
 
             <p className="mt-6 text-lg text-slate-200 leading-relaxed max-w-xl">
-              Suvojit Aya & Nurse Centre provides professional Aya,
+              Maa Tara Aya & Nurse Centre provides professional Aya,
               Nursing and Patient Care services throughout Rajpur,
               Sonarpur and South Kolkata with trained caregivers
               available whenever you need support.
@@ -57,7 +57,7 @@ const NeedCareToday = () => {
                 whileTap={{
                   scale: 0.95,
                 }}
-                href="tel:7003766790"
+                href="tel:8420903843"
                 className="bg-white text-cyan-800 px-8 py-4 rounded-full font-bold flex items-center gap-3 shadow-2xl"
               >
                 <PhoneCall size={20} />
@@ -72,7 +72,7 @@ const NeedCareToday = () => {
                 whileTap={{
                   scale: 0.95,
                 }}
-                href="https://wa.me/917003766790"
+                href="https://wa.me/918420903843"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 shadow-2xl"

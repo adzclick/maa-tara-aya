@@ -172,11 +172,11 @@ const HowItWorks = () => {
           </p>
 
           <a
-            href="tel:7003766790"
+            href="tel:8420903843"
             className="inline-flex items-center gap-3 mt-8 bg-white text-cyan-700 px-8 py-4 rounded-full font-bold hover:scale-105 transition"
           >
             <PhoneCall size={20} />
-            Call Now: 70037 66790
+            Call Now: 8420903843
           </a>
         </motion.div>
 

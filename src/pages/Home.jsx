@@ -7,7 +7,7 @@ import Hero from "../components/Hero";
 import HowItWorks from "../components/HowItWorks";
 import Navbar from "../Components/Navbar";
 import NeedCareToday from "../components/NeedCareToday ";
-import Services from "../components/Services";
+// import Services from "../components/Services";
 import About from "../components/About";
 import Testimonials from "../Components/Testimonials";
 import WhyChooseUs from "../components/WhyChooseUs;";
@@ -23,7 +23,7 @@ function Home() {
       <Hero />
      <About></About>
      <Locations></Locations>
-      <Services />
+      {/* <Services /> */}
       <WhyChooseUs />
       <HowItWorks></HowItWorks>
       <Testimonials></Testimonials>

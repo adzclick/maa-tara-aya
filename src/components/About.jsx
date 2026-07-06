@@ -4,231 +4,125 @@ import {
   Users,
   HeartHandshake,
   Clock3,
-  CheckCircle,
+  CheckCircle2,
+  Quote,
 } from "lucide-react";
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="py-28 bg-white overflow-hidden"
-    >
+    <section id="about" className="py-28 bg-[#FBF7F0] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT IMAGE */}
+          {/* LEFT CONTENT (image moved right for rhythm against the Hero) */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-
-            <div className="overflow-hidden rounded-[40px] shadow-2xl">
-
-              <img
-                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200"
-                alt="About Nursing Care"
-                className="w-full h-[650px] object-cover"
-              />
-
-            </div>
-
-            {/* Floating Experience Card */}
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-              }}
-              className="absolute -bottom-8 left-6 bg-white rounded-3xl shadow-xl px-8 py-5"
-            >
-              <h3 className="text-4xl font-bold text-emerald-600">
-                10+
-              </h3>
-
-              <p className="text-slate-500">
-                Years Experience
-              </p>
-            </motion.div>
-
-          </motion.div>
-
-          {/* RIGHT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-
-            <span className="px-5 py-2 rounded-full bg-emerald-100 text-emerald-700 font-semibold">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#1B4B43]/12 text-[#1B4B43] text-sm font-semibold">
               About Us
             </span>
 
-            <h2 className="mt-6 text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
-              Dedicated To Your
-              <span className="block text-emerald-600">
-                Health & Comfort
-              </span>
+            <h2
+              className="mt-6 text-4xl lg:text-5xl leading-[1.1] text-[#1F2A28] font-medium"
+              style={{ fontFamily: "'Fraunces', serif" }}
+            >
+              A neighbourhood centre,
+              <span className="block text-[#1B4B43]">not a call centre.</span>
             </h2>
 
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-              Suvojit Aya & Nurse Centre is committed to providing
-              professional nursing care, Aya services, elderly care,
-              patient attendants and home healthcare support across
-              Rajpur Sonarpur and nearby areas.
+            <p className="mt-6 text-lg text-[#1F2A28]/70 leading-relaxed">
+              Maa Tara Aya And Nurses Centre is based right in Rania, Rajpur
+              Sonarpur — we're not routing your call through a distant office.
+              We place trained nurses, aya attendants, and elderly caregivers
+              in homes across the neighbourhood, so help is close by when you
+              need it.
             </p>
 
-            <p className="mt-5 text-lg text-slate-600 leading-relaxed">
-              Our trained caregivers ensure dignity, safety and
-              compassionate support for every patient, helping
-              families receive quality healthcare within the comfort
-              of their homes.
+            <p className="mt-5 text-lg text-[#1F2A28]/70 leading-relaxed">
+              Every attendant we send is personally known to us before they're
+              known to you — vetted, briefed on your family's needs, and
+              accountable to a centre you can actually walk into.
             </p>
 
             {/* Features */}
-            <div className="mt-8 space-y-4">
-
-              <div className="flex items-center gap-3">
-                <CheckCircle
-                  className="text-emerald-500"
-                  size={20}
-                />
-
-                <span className="text-slate-700 font-medium">
-                  Trained & Verified Caregivers
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CheckCircle
-                  className="text-emerald-500"
-                  size={20}
-                />
-
-                <span className="text-slate-700 font-medium">
-                  24/7 Home Nursing Support
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CheckCircle
-                  className="text-emerald-500"
-                  size={20}
-                />
-
-                <span className="text-slate-700 font-medium">
-                  Affordable & Reliable Services
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CheckCircle
-                  className="text-emerald-500"
-                  size={20}
-                />
-
-                <span className="text-slate-700 font-medium">
-                  Quick Deployment & Emergency Support
-                </span>
-              </div>
-
+            <div className="mt-8 space-y-3.5">
+              {[
+                "Personally vetted, trained attendants",
+                "24×7 home nursing support",
+                "Transparent, upfront pricing",
+                "Fast placement — often the same day",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircle2 className="text-[#1B4B43]" size={19} />
+                  <span className="text-[#1F2A28]/85 font-medium">{item}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-5 mt-10">
-
-              <motion.div
-                whileHover={{
-                  y: -5,
-                }}
-                className="bg-emerald-50 rounded-3xl p-6"
-              >
-                <Users
-                  className="text-emerald-600 mb-3"
-                  size={30}
-                />
-
-                <h3 className="text-3xl font-bold text-slate-900">
-                  500+
-                </h3>
-
-                <p className="text-slate-600">
-                  Happy Families
-                </p>
+            {/* Stats — qualitative, not invented headcounts */}
+            <div className="grid grid-cols-2 gap-4 mt-10">
+              <motion.div whileHover={{ y: -4 }} className="bg-white rounded-2xl p-5 border border-[#1B4B43]/10">
+                <Users className="text-[#1B4B43] mb-3" size={26} />
+                <h3 className="text-lg font-semibold text-[#1F2A28]">Locally Based</h3>
+                <p className="text-[#1F2A28]/55 text-sm mt-0.5">Rania, Rajpur Sonarpur</p>
               </motion.div>
 
-              <motion.div
-                whileHover={{
-                  y: -5,
-                }}
-                className="bg-blue-50 rounded-3xl p-6"
-              >
-                <HeartHandshake
-                  className="text-blue-600 mb-3"
-                  size={30}
-                />
-
-                <h3 className="text-3xl font-bold text-slate-900">
-                  50+
-                </h3>
-
-                <p className="text-slate-600">
-                  Care Staff
-                </p>
+              <motion.div whileHover={{ y: -4 }} className="bg-white rounded-2xl p-5 border border-[#1B4B43]/10">
+                <HeartHandshake className="text-[#E0862E] mb-3" size={26} />
+                <h3 className="text-lg font-semibold text-[#1F2A28]">Personal Match</h3>
+                <p className="text-[#1F2A28]/55 text-sm mt-0.5">Right attendant for your case</p>
               </motion.div>
 
-              <motion.div
-                whileHover={{
-                  y: -5,
-                }}
-                className="bg-emerald-50 rounded-3xl p-6"
-              >
-                <ShieldCheck
-                  className="text-emerald-600 mb-3"
-                  size={30}
-                />
-
-                <h3 className="text-3xl font-bold text-slate-900">
-                  100%
-                </h3>
-
-                <p className="text-slate-600">
-                  Verified Staff
-                </p>
+              <motion.div whileHover={{ y: -4 }} className="bg-white rounded-2xl p-5 border border-[#1B4B43]/10">
+                <ShieldCheck className="text-[#1B4B43] mb-3" size={26} />
+                <h3 className="text-lg font-semibold text-[#1F2A28]">100% Verified</h3>
+                <p className="text-[#1F2A28]/55 text-sm mt-0.5">Every attendant background-checked</p>
               </motion.div>
 
-              <motion.div
-                whileHover={{
-                  y: -5,
-                }}
-                className="bg-blue-50 rounded-3xl p-6"
-              >
-                <Clock3
-                  className="text-blue-600 mb-3"
-                  size={30}
-                />
-
-                <h3 className="text-3xl font-bold text-slate-900">
-                  24/7
-                </h3>
-
-                <p className="text-slate-600">
-                  Availability
-                </p>
+              <motion.div whileHover={{ y: -4 }} className="bg-white rounded-2xl p-5 border border-[#1B4B43]/10">
+                <Clock3 className="text-[#E0862E] mb-3" size={26} />
+                <h3 className="text-lg font-semibold text-[#1F2A28]">24×7 On-Call</h3>
+                <p className="text-[#1F2A28]/55 text-sm mt-0.5">Day, night, or emergency</p>
               </motion.div>
-
             </div>
-
           </motion.div>
 
-        </div>
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative"
+          >
+            <div className="overflow-hidden rounded-2xl shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200"
+                alt="Caregiver holding the hand of an elderly patient"
+                className="w-full h-[560px] object-cover"
+              />
+            </div>
 
+            {/* Floating quote card — replaces the invented "10+ years" stat */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5 }}
+              className="absolute -bottom-8 left-6 right-6 bg-[#1B4B43] rounded-2xl shadow-xl px-7 py-6 text-[#F4EBDD]"
+            >
+              <Quote className="text-[#E0862E] mb-2" size={22} />
+              <p className="text-[15px] leading-relaxed">
+                "We treat every patient the way we'd want our own family
+                looked after."
+              </p>
+              <p className="text-xs text-[#F4EBDD]/60 mt-3 uppercase tracking-wide">
+                — Maa Tara Aya And Nurses Centre
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

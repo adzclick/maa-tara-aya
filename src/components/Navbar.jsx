@@ -1,199 +1,153 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ShieldCheck,
-  Phone,
-  Menu,
-  X,
-} from "lucide-react";
+import { Phone, Menu, X, Clock } from "lucide-react";
+
+
+
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About Us", href: "#about" },
+  { label: "Our Services", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+];
+
+const PHONE_DISPLAY = "+91 84209 03843"; // TODO: replace with the centre's real number
+const PHONE_TEL = "+918420903843";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
+    <header className="fixed top-0 left-0 w-full z-50 font-[Work Sans, sans-serif]">
 
-      {/* Desktop Navbar */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      {/* ── Announcement strip ── */}
+      <div className="bg-[#1B4B43] text-[#F4EBDD]">
+        <div className="max-w-7xl mx-auto px-5 h-9 flex items-center justify-between text-xs">
+          <span className="hidden sm:flex items-center gap-1.5">
+            <Clock size={13} className="text-[#E0862E]" />
+            Rania, Rajpur Sonarpur, Kolkata &middot; Available round the clock
+          </span>
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="flex items-center gap-1.5 mx-auto sm:mx-0 font-medium tracking-wide"
+          >
+            <Phone size={13} className="text-[#E0862E]" />
+            {PHONE_DISPLAY}
+          </a>
+        </div>
+      </div>
 
-        <motion.div
-          initial={{ y: -80 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-white/95 backdrop-blur-xl border border-slate-200 rounded-full shadow-xl h-20 px-6 flex items-center justify-between"
-        >
+      {/* ── Main bar ── */}
+      <motion.div
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-[#FBF7F0]/95 backdrop-blur-md border-b border-[#1B4B43]/10"
+      >
+        <div className="max-w-7xl mx-auto px-5 h-20 flex items-center justify-between gap-6">
 
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shadow-lg">
-
-              <ShieldCheck
-                className="text-white"
-                size={24}
-              />
-
+          {/* Wordmark */}
+          <a href="#home" className="flex items-center gap-3 shrink-0">
+            <div className="w-11 h-11 rounded-full border-2 border-[#1B4B43] flex items-center justify-center">
+              <span className="font-serif text-[#1B4B43] text-lg leading-none" style={{ fontFamily: "'Fraunces', serif" }}>
+                MT
+              </span>
             </div>
-
-            <div>
-              <h1 className="font-bold text-slate-900 text-lg leading-tight">
-                Suvojit Aya &
+            <div className="leading-tight">
+              <h1
+                className="text-[#1B4B43] text-xl font-semibold"
+                style={{ fontFamily: "'Fraunces', serif" }}
+              >
+                Maa Tara
               </h1>
-
-              <p className="text-sm text-emerald-600 font-medium">
-                Nurse Centre
+              <p className="text-[11px] uppercase tracking-[0.16em] text-[#6B8F87] font-medium">
+                Aya &amp; Nurses Centre
               </p>
             </div>
+          </a>
 
-          </div>
-
-          {/* Desktop Menu */}
+          {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8">
-
-            <a
-              href="#home"
-              className="font-medium text-slate-700 hover:text-emerald-600 transition"
-            >
-              Home
-            </a>
-
-            <a
-              href="#about"
-              className="font-medium text-slate-700 hover:text-emerald-600 transition"
-            >
-              About
-            </a>
-
-            <a
-              href="#services"
-              className="font-medium text-slate-700 hover:text-emerald-600 transition"
-            >
-              Services
-            </a>
-
-            <a
-              href="#contact"
-              className="font-medium text-slate-700 hover:text-emerald-600 transition"
-            >
-              Contact
-            </a>
-          
-
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-[#1F2A28]/80 hover:text-[#1B4B43] transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
-          {/* Right Side */}
+          {/* Right side */}
           <div className="flex items-center gap-3">
 
-            {/* Desktop Call Button */}
+            {/* Signature: 24x7 availability chip */}
+            <span className="hidden md:inline-flex items-center gap-2 rounded-full border border-[#1B4B43]/15 bg-white px-3 py-1.5 text-xs font-medium text-[#1B4B43]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E0862E] opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E0862E]"></span>
+              </span>
+              Available 24×7
+            </span>
+
             <a
-              href="tel:+916291762641"
-              className="hidden md:flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition"
+              href={`tel:${PHONE_TEL}`}
+              className="hidden md:inline-flex items-center gap-2 bg-[#E0862E] hover:bg-[#c8721f] text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"
             >
-              <Phone size={18} />
+              <Phone size={16} />
               Call Now
             </a>
 
-            {/* Mobile Menu Button */}
             <button
-              onClick={() =>
-                setMobileMenu(!mobileMenu)
-              }
-              className="lg:hidden w-11 h-11 rounded-full bg-slate-100 flex items-center justify-center"
+              onClick={() => setMobileMenu(!mobileMenu)}
+              className="lg:hidden w-10 h-10 rounded-md border border-[#1B4B43]/15 flex items-center justify-center text-[#1B4B43]"
+              aria-label="Toggle menu"
             >
-
-              {mobileMenu ? (
-                <X size={22} />
-              ) : (
-                <Menu size={22} />
-              )}
-
+              {mobileMenu ? <X size={20} /> : <Menu size={20} />}
             </button>
-
           </div>
+        </div>
+      </motion.div>
 
-        </motion.div>
-
-      </div>
-
-      {/* Mobile Menu */}
+      {/* ── Mobile menu ── */}
       <AnimatePresence>
-
         {mobileMenu && (
-
           <motion.div
-            initial={{
-              opacity: 0,
-              y: -20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -20,
-            }}
-            className="lg:hidden mx-4 mt-2 bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-[#FBF7F0] border-b border-[#1B4B43]/10 overflow-hidden"
           >
-
             <div className="flex flex-col">
-
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenu(false)}
+                  className="px-5 py-3.5 border-t border-[#1B4B43]/8 text-[#1F2A28] text-sm font-medium hover:bg-[#1B4B43]/5"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="p-4 border-t border-[#1B4B43]/8 flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E0862E] opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E0862E]"></span>
+                </span>
+                <span className="text-xs text-[#1B4B43] font-medium">Available 24×7</span>
+              </div>
               <a
-                href="#home"
-                onClick={() =>
-                  setMobileMenu(false)
-                }
-                className="px-6 py-4 border-b hover:bg-slate-50"
+                href={`tel:${PHONE_TEL}`}
+                className="m-4 mt-0 bg-[#E0862E] text-white text-center py-3 rounded-md font-semibold flex items-center justify-center gap-2"
               >
-                Home
-              </a>
-
-              <a
-                href="#about"
-                onClick={() =>
-                  setMobileMenu(false)
-                }
-                className="px-6 py-4 border-b hover:bg-slate-50"
-              >
-                About
-              </a>
-
-              <a
-                href="#services"
-                onClick={() =>
-                  setMobileMenu(false)
-                }
-                className="px-6 py-4 border-b hover:bg-slate-50"
-              >
-                Services
-              </a>
-
-              <a
-                href="#contact"
-                onClick={() =>
-                  setMobileMenu(false)
-                }
-                className="px-6 py-4 border-b hover:bg-slate-50"
-              >
-                Contact
-              </a>
-
-              <a
-                href="tel:+917003766790"
-                className="m-4 bg-gradient-to-r from-emerald-500 to-blue-600 text-white text-center py-3 rounded-full font-semibold flex items-center justify-center gap-2"
-              >
-                <Phone size={18} />
+                <Phone size={16} />
                 Call Now
               </a>
-
             </div>
-
           </motion.div>
-
         )}
-
       </AnimatePresence>
-
     </header>
   );
 };

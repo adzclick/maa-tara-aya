@@ -1,264 +1,140 @@
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Building2,
-  Navigation,
-  ShieldCheck,
-} from "lucide-react";
+import { Quote, Star, ExternalLink } from "lucide-react";
+
+// TODO: Replace these three placeholder testimonials with real reviews as
+// they come in (copy them verbatim from Google/Justdial, with the
+// reviewer's actual name). Do not invent quotes or names.
+const testimonials = [
+  {
+    name: "Local Family",
+    area: "Rania, Rajpur Sonarpur",
+    review:
+      "Add a real review here once you have one — short, specific feedback works best.",
+  },
+  {
+    name: "Local Family",
+    area: "Rajpur Sonarpur",
+    review:
+      "Add a real review here once you have one — short, specific feedback works best.",
+  },
+  {
+    name: "Local Family",
+    area: "South Kolkata",
+    review:
+      "Add a real review here once you have one — short, specific feedback works best.",
+  },
+];
+
+const reviewUrl =
+  "https://www.google.com/search?q=Maa+Tara+Aya+And+Nurses+Centre+Rajpur+Sonarpur+Reviews";
 
 const Locations = () => {
-  const serviceAreas = [
-    "Rajpur",
-    "Sonarpur",
-    "Narendrapur",
-    "Garia",
-    "Jadavpur",
-    "Bansdroni",
-    "Tollygunge",
-    "South Kolkata",
-  ];
-
   return (
-    <section
-      id="location"
-      className="relative py-28 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-emerald-50"
-    >
-      {/* Background Effects */}
+    <section id="testimonials" className="relative py-28 overflow-hidden bg-[#FBF7F0]">
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #1B4B43 1px, transparent 1px)",
+          backgroundSize: "26px 26px",
+        }}
+      />
 
-      <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl" />
-
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="relative max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 80,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 1.3,
-          }}
-          className="text-center mb-20"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-100 text-emerald-700 font-medium mb-6">
-            <MapPin size={16} />
-            Service Location
+          <span className="px-4 py-1.5 rounded-full bg-white border border-[#1B4B43]/12 text-[#1B4B43] text-sm font-semibold">
+            Testimonials
           </span>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-slate-900">
-            Serving Families Across
-            <span className="block text-emerald-600">
-              Rajpur Sonarpur & South Kolkata
-            </span>
+          <h2
+            className="mt-6 text-4xl lg:text-5xl text-[#1F2A28] font-medium"
+            style={{ fontFamily: "'Fraunces', serif" }}
+          >
+            What families say
+            <span className="block text-[#1B4B43]">about our care.</span>
           </h2>
 
-          <p className="mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
-            Professional Aya, Nursing and Patient Care services
-            delivered directly to your doorstep with compassion,
-            reliability and care.
+          <p className="mt-5 text-lg text-[#1F2A28]/65 max-w-2xl mx-auto">
+            We're a small, local team — every review comes from a real
+            family we've worked with in Rajpur Sonarpur and nearby.
           </p>
         </motion.div>
 
-        {/* Main Card */}
+        {/* Cards */}
+        <div className="grid lg:grid-cols-3 gap-7">
+          {testimonials.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -6 }}
+              className={`relative overflow-hidden rounded-2xl p-7 border ${
+                index === 1
+                  ? "bg-[#1B4B43] text-[#F4EBDD] border-[#1B4B43]"
+                  : "bg-white border-[#1B4B43]/10"
+              }`}
+            >
+              <Quote
+                size={56}
+                className={`absolute top-4 right-4 ${
+                  index === 1 ? "text-[#F4EBDD]/10" : "text-[#1B4B43]/6"
+                }`}
+              />
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            x: -100,
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-          }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 1.5,
-          }}
-          whileHover={{
-            y: -10,
-          }}
-          className="bg-white/90 backdrop-blur-lg rounded-[40px] shadow-2xl border border-emerald-100 overflow-hidden"
-        >
-          <div className="grid lg:grid-cols-2">
-
-            {/* Left */}
-
-            <div className="p-10 lg:p-14">
-
-              <div className="flex items-center gap-4 mb-8">
-
-                <motion.div
-                  whileHover={{
-                    rotate: 10,
-                    scale: 1.1,
-                  }}
-                  className="w-20 h-20 rounded-3xl bg-emerald-100 flex items-center justify-center"
-                >
-                  <Building2
-                    size={34}
-                    className="text-emerald-600"
-                  />
-                </motion.div>
-
-                <div>
-                  <h3 className="text-3xl font-bold text-slate-900">
-                    Suvojit Aya & Nurse Centre
-                  </h3>
-
-                  <p className="text-emerald-600 font-medium">
-                    Main Service Office
-                  </p>
-                </div>
-
+              <div className="flex gap-1 mb-4 text-[#E0862E]">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} fill="currentColor" size={15} />
+                ))}
               </div>
 
-              <div className="space-y-5">
-
-                <div className="flex items-start gap-3">
-
-                  <MapPin
-                    size={22}
-                    className="text-emerald-600 mt-1"
-                  />
-
-                  <p className="text-slate-600 leading-8 text-lg">
-                    Ishan Mitra Lane,
-                    <br />
-                    Near Shishu Sangha Club,
-                    <br />
-                    Rajpur,
-                    Rajpur Sonarpur,
-                    <br />
-                    West Bengal – 700149
-                  </p>
-
-                </div>
-
-                <div className="flex items-center gap-3">
-
-                  <ShieldCheck
-                    className="text-emerald-600"
-                    size={20}
-                  />
-
-                  <span className="text-slate-700">
-                    Verified & Professional Care Staff
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Right */}
-
-            <div className="bg-gradient-to-br from-emerald-600 to-blue-600 p-10 lg:p-14 text-white flex flex-col justify-center">
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: 80,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 1.6,
-                }}
+              <p
+                className={`leading-relaxed text-[15px] relative z-10 ${
+                  index === 1 ? "text-[#F4EBDD]/90" : "text-[#1F2A28]/70"
+                }`}
               >
-                <Navigation
-                  size={50}
-                  className="mb-6"
-                />
+                "{item.review}"
+              </p>
 
-                <h3 className="text-3xl font-bold mb-5">
-                  Quick Service Reach
-                </h3>
-
-                <p className="text-lg text-white/90 leading-8">
-                  Our caregivers and nurses can be deployed quickly
-                  across Sonarpur and South Kolkata areas with
-                  same-day assistance whenever available.
+              <div className="mt-6">
+                <h4 className="font-semibold text-base">{item.name}</h4>
+                <p className={`text-sm ${index === 1 ? "text-[#F4EBDD]/55" : "text-[#1F2A28]/50"}`}>
+                  {item.area}
                 </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-              </motion.div>
-            </div>
-
-          </div>
-        </motion.div>
-
-        {/* Coverage Areas */}
-
+        {/* Google Reviews link */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 80,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 1.5,
-            delay: 0.2,
-          }}
-          className="mt-20"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-14"
         >
-          <h3 className="text-center text-3xl font-bold text-slate-900 mb-10">
-            Areas We Serve
-          </h3>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-            {serviceAreas.map((area, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.1,
-                }}
-                whileHover={{
-                  y: -8,
-                  scale: 1.05,
-                }}
-                className="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 text-center"
-              >
-                <MapPin
-                  className="mx-auto text-emerald-600 mb-3"
-                  size={24}
-                />
-
-                <h4 className="font-semibold text-slate-900">
-                  {area}
-                </h4>
-
-              </motion.div>
-            ))}
-
-          </div>
+          <motion.a
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            href={reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-[#1B4B43] hover:bg-[#153a34] text-white px-7 py-3.5 rounded-md font-semibold transition-colors"
+          >
+            <Star size={17} fill="currentColor" className="text-[#E0862E]" />
+            View Google Reviews
+            <ExternalLink size={15} />
+          </motion.a>
         </motion.div>
-
       </div>
     </section>
   );
